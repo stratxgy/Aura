@@ -30,7 +30,6 @@ local function teleportToPlayerWithOffset()
         -- Method 1: Teleport the local player 5 studs in front of the target
         local newPosition = TargetHumanoid.RootPart.CFrame + TargetHumanoid.RootPart.CFrame.LookVector * 5
         PlayerHumanoid.RootPart.CFrame = newPosition
-        print("Teleported 5 studs in front of the target.")
         
         -- Method 2: Align the local player's position with the target, keeping the Y-axis fixed
         local newPositionAligned = CFrame.new(
