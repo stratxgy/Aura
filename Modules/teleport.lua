@@ -1,7 +1,7 @@
 -- Initialize teleport settings with the default value of `tp = true` for immediate teleportation
 getgenv().tp = {
     player = "",  -- Replace with the target player's username
-    tp = false  -- Set to true to trigger teleportation immediately, false will not teleport
+    tp = true  -- Set to true to trigger teleportation immediately, false will not teleport
 }
 
 -- Function to teleport the local player to the specified player
