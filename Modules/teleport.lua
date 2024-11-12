@@ -1,7 +1,7 @@
 
 getgenv().tp = {
     player = "",  -- Replace with the target player's username
-    tp = false  -- Set to true to trigger teleportation, false to disable it
+    tp = true  -- Set to true to trigger teleportation, false to disable it
 }
 
 -- Function to teleport the local player to the specified player
