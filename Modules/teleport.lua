@@ -15,7 +15,6 @@ local function teleportToPlayerWithOffset()
     local targetPlayer = game.Players:FindFirstChild(username)
 
     if not targetPlayer then
-        print("Player not found: " .. username)
         return
     end
 
