@@ -5,7 +5,7 @@ getgenv().spin = {
     strafespeed = 2,     -- Speed of strafing (higher = faster)
     spinspeed = 5,       -- Speed of spinning (higher = faster)
     angle = 0,           -- Current angle (used internally for calculations)
-    keybind = Enum.KeyCode.E -- Keybind to toggle strafing
+    keybind = Enum.KeyCode.P -- Keybind to toggle strafing
 }
 
 -- Services
