@@ -1,14 +1,13 @@
 
 getgenv().tp = {
-    player = "", 
-    enabled = false 
+    player = "",  -- Replace with the target player's username
+    tp = false  -- Set to true to trigger teleportation, false to disable it
 }
 
 -- Function to teleport the local player to the specified player
 local function teleportToPlayerWithOffset()
     -- Check if teleportation is enabled
-    if not getgenv().tp.enabled then
-        print("Teleportation is disabled.")
+    if not getgenv().tp.tp then
         return
     end
 
@@ -20,7 +19,7 @@ local function teleportToPlayerWithOffset()
         return
     end
 
-
+    -- Get the local player's character and the target player's character
     local localPlayer = game.Players.LocalPlayer
     local localCharacter = localPlayer.Character
     local targetCharacter = targetPlayer.Character
@@ -29,26 +28,21 @@ local function teleportToPlayerWithOffset()
         local PlayerHumanoid = localCharacter:WaitForChild("Humanoid")
         local TargetHumanoid = targetCharacter:WaitForChild("Humanoid")
         
-
+        -- Method 1: Teleport the local player 5 studs in front of the target
         local newPosition = TargetHumanoid.RootPart.CFrame + TargetHumanoid.RootPart.CFrame.LookVector * 5
         PlayerHumanoid.RootPart.CFrame = newPosition
-     
+        print("Teleported 5 studs in front of the target.")
         
+        -- Method 2: Align the local player's position with the target, keeping the Y-axis fixed
         local newPositionAligned = CFrame.new(
             PlayerHumanoid.RootPart.Position.X,
             PlayerHumanoid.RootPart.Position.Y,
             TargetHumanoid.RootPart.Position.Z
         )
         PlayerHumanoid.RootPart.CFrame = newPositionAligned
-     
-
     end
 end
 
--- Toggle teleportation
-local function toggleTeleport(enabled)
-    getgenv().tp.enabled = enabled
-end
 
--- Call the teleport function (this can be triggered manually or as needed)
+-- Call the teleport function if the toggle is enabled
 teleportToPlayerWithOffset()
