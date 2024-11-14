@@ -1,11 +1,26 @@
--- Create a global settings table using getgenv()
+-- Function to dynamically identify the player
+local function getPlayer()
+    local players = game:GetService("Players")
+    local character = script.Parent -- Assumes the script is in StarterCharacterScripts
+    if character and character:IsA("Model") and players:GetPlayerFromCharacter(character) then
+        return players:GetPlayerFromCharacter(character)
+    else
+        return players.LocalPlayer or nil
+    end
+end
+
+local player = getPlayer()
+if not player then
+    warn("Could not identify the player!")
+    return
+end
+
 getgenv().headless = {
     enabled = true,  -- Set to true to activate headless mode
     size = Vector3.new(0.1, 0.1, 0.1),  -- Size of the head when shrunk
     positionOffset = Vector3.new(0, -1, 0),  -- Offset relative to the torso when headless
 }
 
-local player = game.Players.LocalPlayer
 local activeCharacter = nil  -- To keep track of the current character
 local originalHeadProperties = {}  -- Table to store the original head properties
 
