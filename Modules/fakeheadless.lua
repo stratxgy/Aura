@@ -1,9 +1,13 @@
-
 getgenv().headless = {
     enabled = false,  -- Set to true to activate headless mode
     size = Vector3.new(0.1, 0.1, 0.1),  -- Size of the head when shrunk
     positionOffset = Vector3.new(0, -1, 0),  -- Offset relative to the torso when headless
 }
+
+-- Wait until headless mode is enabled
+while not getgenv().headless.enabled do
+    task.wait(0.1)  -- Wait for the enabled flag to be set to true
+end
 
 local player = game.Players.LocalPlayer
 local activeCharacter = nil  -- To keep track of the current character
@@ -46,26 +50,21 @@ local function shrinkHeadAndMove(character)
         return
     end
 
-    if getgenv().headless.enabled then
-        -- Store the original head properties once
-        if not originalHeadProperties.Size then
-            storeOriginalHeadProperties(head)
-        end
-
-        -- Shrink the head to the specified size
-        head.Size = getgenv().headless.size
-
-        -- Move the head inside the torso relative to its orientation
-        local targetCFrame = torso.CFrame * CFrame.new(getgenv().headless.positionOffset)
-        head.CFrame = targetCFrame
-
-        -- Optionally, hide the head so it doesn't render
-        head.Transparency = 1
-        head.CanCollide = false
-    else
-        -- Restore the original head properties
-        restoreOriginalHeadProperties(head)
+    -- Store the original head properties once
+    if not originalHeadProperties.Size then
+        storeOriginalHeadProperties(head)
     end
+
+    -- Shrink the head to the specified size
+    head.Size = getgenv().headless.size
+
+    -- Move the head inside the torso relative to its orientation
+    local targetCFrame = torso.CFrame * CFrame.new(getgenv().headless.positionOffset)
+    head.CFrame = targetCFrame
+
+    -- Optionally, hide the head so it doesn't render
+    head.Transparency = 1
+    head.CanCollide = false
 end
 
 -- Function to handle when the character is added or respawned
