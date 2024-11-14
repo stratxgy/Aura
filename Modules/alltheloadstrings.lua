@@ -6,4 +6,4 @@ local chams = loadstring(game:HttpGet("https://raw.githubusercontent.com/Stratxg
 local targethud = loadstring(game:HttpGet("https://raw.githubusercontent.com/Stratxgy/Lua-TargetHud/refs/heads/main/targethud.lua"))()
 local spin = loadstring(game:HttpGet("https://raw.githubusercontent.com/Stratxgy/Aura/refs/heads/main/Modules/spinlock.lua"))()
 local aaimweld = loadstring(game:HttpGet("https://raw.githubusercontent.com/Stratxgy/Aura/refs/heads/main/Modules/aaimweld.lua"))()
-local headless = loadstring(game:HttpGet("https://github.com/Stratxgy/Aura/blob/main/Modules/fakeheadless.lua"))()
+local headless = loadstring(game:HttpGet("https://raw.githubusercontent.com/Stratxgy/Aura/refs/heads/main/Modules/fakeheadless.lua"))()
