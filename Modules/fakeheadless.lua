@@ -1,6 +1,6 @@
 
 getgenv().headless = {
-    enabled = true,  -- Set to true to activate headless mode
+    enabled = false,  -- Set to true to activate headless mode
     size = Vector3.new(0.1, 0.1, 0.1),  -- Size of the head when shrunk
     positionOffset = Vector3.new(0, -1, 0),  -- Offset relative to the torso when headless
 }
