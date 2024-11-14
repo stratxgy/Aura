@@ -21,7 +21,6 @@ getgenv().headless = {
     positionOffset = Vector3.new(0, -1, 0),  -- Offset relative to the torso when headless
 }
 
-local activeCharacter = nil  -- To keep track of the current character
 local originalHeadProperties = {}  -- Table to store the original head properties
 
 -- Function to store the original properties of the head
