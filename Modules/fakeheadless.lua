@@ -1,7 +1,7 @@
--- Function to dynamically identify the player
+
 local function getPlayer()
     local players = game:GetService("Players")
-    local character = script.Parent -- Assumes the script is in StarterCharacterScripts
+    local character = script.Parent
     if character and character:IsA("Model") and players:GetPlayerFromCharacter(character) then
         return players:GetPlayerFromCharacter(character)
     else
