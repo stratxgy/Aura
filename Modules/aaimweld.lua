@@ -102,7 +102,7 @@ task.spawn(function()
             isSpinning = false 
             spinWeld = nil 
         end
-        task.wait(1)
+        task.wait(0.5)
     end
 end)
 
@@ -114,7 +114,7 @@ task.spawn(function()
             lastOffset = getgenv().aaimweld.offset
             updateOffset()
         end
-        task.wait(1)
+        task.wait(0.5)
     end
 end)
 
