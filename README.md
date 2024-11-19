@@ -4,5 +4,5 @@ Make sure to watch and star it to see when it releases.
 Probably will be open source. Don't quote me, though.
 
 11/18/24 
-status update: esp is making suboptimal unc (only on solara and paid exps) so im recoding it all :)
+status update: esp is having suboptimal unc (only works on solara and paid exps) so im recoding it all :)
 predictions are end of november still, as all features besides esp are finished.
