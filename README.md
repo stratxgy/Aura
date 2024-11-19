@@ -9,4 +9,4 @@ predictions are end of november still, as all features besides esp are finished.
 
 11/19/24 
 if any of you know a good free website creator, please create an issue!
-I was trying to create a website for the script that looks something like this: script.orbituniverse.com
+I was trying to create a website for the script that looks something like this: [script.orbituniverse.com](script.orbituniverse.com)
