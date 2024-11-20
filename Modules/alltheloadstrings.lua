@@ -1,4 +1,5 @@
 local ESP = loadstring(game:HttpGet("https://raw.githubusercontent.com/Stratxgy/Aura/refs/heads/main/Modules/ESP/ESP.lua"))()
+local hbar = loadstring(game:HttpGet("https://raw.githubusercontent.com/Stratxgy/Aura/refs/heads/main/Modules/ESP/hbar.lua"))()
 local viewtracer = loadstring(game:HttpGet("https://raw.githubusercontent.com/Stratxgy/Aura/refs/heads/main/Modules/ESP/ViewTracerESP.lua"))()
 local arrows = loadstring(game:HttpGet("https://raw.githubusercontent.com/Stratxgy/Aura/refs/heads/main/Modules/ESP/arrows.lua"))()
 local cbox = loadstring(game:HttpGet("https://raw.githubusercontent.com/Stratxgy/Aura/refs/heads/main/Modules/ESP/cbox.lua"))()
