@@ -1,7 +1,7 @@
 
 getgenv().pname = getgenv().pname or {
     Color = Color3.fromRGB(255, 255, 255), 
-    Enabled = true, 
+    Enabled = false, 
     Position = "Below",
     Size = 13,
 }
