@@ -1,22 +1,23 @@
 
 getgenv().ptool = getgenv().ptool or {
-    Color = Color3.fromRGB(255, 255, 255),
-    Enabled = false,  -- Above or Below (hi I was here, yes I know so cool)
-    Position = "Above", 
-    Size = 10,
+    Color = Color3.fromRGB(255, 255, 255), 
+    Enabled = false, 
+    Position = "Above",  -- Above or Below (hi I was here, yes I know so cool)
+    Size = 10, 
 }
 
-local billboards = {} 
+local billboards = {}
 
 
 local function createToolBillboard(player)
-    if player == game.Players.LocalPlayer then return end 
+    if player == game.Players.LocalPlayer then return end
     if not getgenv().ptool.Enabled then return end 
 
     local function adornCharacter(character)
         if not getgenv().ptool.Enabled then return end
         local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
 
+     
         local billboard = Instance.new("BillboardGui")
         billboard.Adornee = humanoidRootPart
         billboard.Size = UDim2.new(4, 0, 1, 0)
@@ -39,7 +40,7 @@ local function createToolBillboard(player)
         billboard.Parent = humanoidRootPart
         billboards[player] = billboard
 
-      
+  
         local function updateTool()
             local tool = character:FindFirstChildOfClass("Tool")
             textLabel.Text = tool and tool.Name or "None"
@@ -71,7 +72,6 @@ local function removeAllBillboards()
     table.clear(billboards)
 end
 
-
 task.spawn(function()
     while task.wait(0.2) do
         if getgenv().ptool.Enabled then
@@ -96,3 +96,4 @@ if getgenv().ptool.Enabled then
         createToolBillboard(player)
     end)
 end
+
