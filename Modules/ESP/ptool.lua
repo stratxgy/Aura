@@ -1,35 +1,28 @@
 
-
 if getgenv()._ptoolLoaded then return end
 getgenv()._ptoolLoaded = true
 
-getgenv().ptool = getgenv().ptool or {
-    Color = Color3.fromRGB(255, 255, 255), 
-    Enabled = false, -- Above or Below (hi I was here, yes I know so cool)
-    Position = "Above", 
+getgenv().ptool = {
+    Color = Color3.fromRGB(255, 255, 255),
+    Enabled = false,
+    Position = "Above",    -- Above or Below (hi I was here, yes I know so cool)
     Size = 10,
 }
 
-local billboards = {} 
-
+local billboards = {}
 
 local function createToolBillboard(player)
-    if player == game.Players.LocalPlayer then return end 
+    if player == game.Players.LocalPlayer then return end
     if not getgenv().ptool.Enabled then return end
 
     local function adornCharacter(character)
         if not getgenv().ptool.Enabled then return end
         local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
-
-   
         local billboard = Instance.new("BillboardGui")
         billboard.Adornee = humanoidRootPart
         billboard.Size = UDim2.new(4, 0, 1, 0)
-        billboard.StudsOffset = getgenv().ptool.Position == "Below" 
-            and Vector3.new(0, -4, 0) 
-            or Vector3.new(0, 4, 0)
+        billboard.StudsOffset = getgenv().ptool.Position == "Below" and Vector3.new(0, -4, 0) or Vector3.new(0, 4, 0)
         billboard.AlwaysOnTop = true
-
 
         local textLabel = Instance.new("TextLabel")
         textLabel.BackgroundTransparency = 1
@@ -44,7 +37,6 @@ local function createToolBillboard(player)
         billboard.Parent = humanoidRootPart
         billboards[player] = billboard
 
-  
         local function updateTool()
             local tool = character:FindFirstChildOfClass("Tool")
             textLabel.Text = tool and tool.Name or "None"
@@ -66,7 +58,6 @@ local function createToolBillboard(player)
     end)
 end
 
-
 local function removeAllBillboards()
     for _, billboard in pairs(billboards) do
         if billboard then
@@ -75,7 +66,6 @@ local function removeAllBillboards()
     end
     table.clear(billboards)
 end
-
 
 task.spawn(function()
     while task.wait(0.2) do
@@ -91,7 +81,6 @@ task.spawn(function()
     end
 end)
 
-
 if getgenv().ptool.Enabled then
     for _, player in ipairs(game.Players:GetPlayers()) do
         createToolBillboard(player)
@@ -101,4 +90,6 @@ if getgenv().ptool.Enabled then
         createToolBillboard(player)
     end)
 end
+
+
 
