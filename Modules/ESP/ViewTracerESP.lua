@@ -1,14 +1,12 @@
-getgenv().viewtracer = {
-    Enabled = false, 
-    Color = Color3.fromRGB(255, 203, 138), 
+getgenv().viewtracer = { 
+    Enabled = false,
+    Color = Color3.fromRGB(255, 203, 138),
     Thickness = 1, -- (AutoThickness makes this not matter)
     Transparency = 1, 
     AutoThickness = true,
     Length = 15, -- in studs
     Smoothness = 0.2 
 }
-
-
 
 local toggle = true 
 
@@ -20,25 +18,35 @@ local function ESP(plr)
     line.Visible = false
     line.From = Vector2.new(0, 0)
     line.To = Vector2.new(0, 0)
-    line.Color = getgenv().viewtracer.Color
+    line.Color = getgenv().viewtracer.Color 
     line.Thickness = getgenv().viewtracer.Thickness
     line.Transparency = getgenv().viewtracer.Transparency
 
     local function Updater() 
         local connection
         connection = game:GetService("RunService").RenderStepped:Connect(function()
-           
-            if getgenv().viewtracer.Enabled and toggle and plr.Character ~= nil and plr.Character:FindFirstChild("Humanoid") ~= nil and plr.Character:FindFirstChild("HumanoidRootPart") ~= nil and plr.Character.Humanoid.Health > 0 and plr.Character:FindFirstChild("Head") ~= nil then
+            if getgenv().viewtracer.Enabled and toggle 
+                and plr.Character ~= nil 
+                and plr.Character:FindFirstChild("Humanoid") ~= nil 
+                and plr.Character:FindFirstChild("HumanoidRootPart") ~= nil 
+                and plr.Character.Humanoid.Health > 0 
+                and plr.Character:FindFirstChild("Head") ~= nil then
+
                 local headpos, OnScreen = camera:WorldToViewportPoint(plr.Character.Head.Position)
                 if OnScreen then 
                     local offsetCFrame = CFrame.new(0, 0, -getgenv().viewtracer.Length)
                     local check = false
                     line.From = Vector2.new(headpos.X, headpos.Y)
+
+                
+                    line.Color = getgenv().viewtracer.Color 
+
                     if getgenv().viewtracer.AutoThickness then
                         local distance = (player.Character.HumanoidRootPart.Position - plr.Character.HumanoidRootPart.Position).magnitude 
                         local value = math.clamp(1/distance*100, 0.1, 3) 
                         line.Thickness = value
                     end
+
                     repeat
                         local dir = plr.Character.Head.CFrame:ToWorldSpace(offsetCFrame)
                         offsetCFrame = offsetCFrame * CFrame.new(0, 0, getgenv().viewtracer.Smoothness)
@@ -77,18 +85,14 @@ task.spawn(function()
     end
 end)
 
-
 for i, v in pairs(game:GetService("Players"):GetPlayers()) do
     if v.Name ~= player.Name then
         coroutine.wrap(ESP)(v)
     end
 end
 
-
 game.Players.PlayerAdded:Connect(function(newplr)
     if newplr.Name ~= player.Name then
         coroutine.wrap(ESP)(newplr)
     end
 end)
-
-
