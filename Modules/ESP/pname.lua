@@ -9,6 +9,8 @@ getgenv().pname = {
     Size = 10,
 }
 
+if not getgenv().pname.Enabled then return end
+
 local billboards = {}
 
 local function createNameBillboard(player)
