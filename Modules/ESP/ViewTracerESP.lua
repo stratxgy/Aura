@@ -91,4 +91,4 @@ game.Players.PlayerAdded:Connect(function(newplr)
     end
 end)
 
-print("hi, it's stratxgy. If it sent an error like: attempt to index nil with 'visible' it's okay and it worked fine. Thanks for using my script.")
+
