@@ -2,33 +2,27 @@
 if getgenv()._pnameLoaded then return end
 getgenv()._pnameLoaded = true
 
-getgenv().pname = getgenv().pname or {
+getgenv().pname = {
     Color = Color3.fromRGB(255, 255, 255),
-    Enabled = false, 
-    Position = "Above",   -- hi future me the options are "Above" or "Below" remember that ok? ok good.
+    Enabled = false,
+    Position = "Above",  -- hi future me the options are "Above" or "Below" remember that ok? ok good.
     Size = 10,
 }
 
 local billboards = {}
 
-
 local function createNameBillboard(player)
-    if player == game.Players.LocalPlayer then return end 
-    if not getgenv().pname.Enabled then return end 
+    if player == game.Players.LocalPlayer then return end
+    if not getgenv().pname.Enabled then return end
 
     local function adornCharacter(character)
         if not getgenv().pname.Enabled then return end
         local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
-
- 
         local billboard = Instance.new("BillboardGui")
         billboard.Adornee = humanoidRootPart
         billboard.Size = UDim2.new(4, 0, 1, 0)
-        billboard.StudsOffset = getgenv().pname.Position == "Below" 
-            and Vector3.new(0, -3, 0) 
-            or Vector3.new(0, 3, 0)
+        billboard.StudsOffset = getgenv().pname.Position == "Below" and Vector3.new(0, -3, 0) or Vector3.new(0, 3, 0)
         billboard.AlwaysOnTop = true
-
 
         local textLabel = Instance.new("TextLabel")
         textLabel.Text = player.Name
@@ -43,7 +37,6 @@ local function createNameBillboard(player)
 
         billboard.Parent = humanoidRootPart
         billboards[player] = billboard
-
 
         character.AncestryChanged:Connect(function()
             if not character:IsDescendantOf(game) then
@@ -63,7 +56,6 @@ local function createNameBillboard(player)
         end
     end)
 end
-
 
 local function removeAllBillboards()
     for _, billboard in pairs(billboards) do
@@ -88,7 +80,6 @@ task.spawn(function()
     end
 end)
 
-
 if getgenv().pname.Enabled then
     for _, player in ipairs(game.Players:GetPlayers()) do
         createNameBillboard(player)
@@ -98,3 +89,4 @@ if getgenv().pname.Enabled then
         createNameBillboard(player)
     end)
 end
+
