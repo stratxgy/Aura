@@ -1,15 +1,14 @@
-
 getgenv().viewtracer = {
     Enabled = false, 
-    Color = Color3.fromRGB(255, 203, 138), -- Color of the line
-    Thickness = 1, -- Thickness of the line (Overruled by AutoThickness if activated)
-    Transparency = 1, -- 1 Visible - 0 Not Visible
-    AutoThickness = true, -- Makes Thickness above futile, scales according to distance, good for less encumbered screen
+    Color = Color3.fromRGB(255, 203, 138), 
+    Thickness = 1, -- (AutoThickness makes this not matter)
+    Transparency = 1, 
+    AutoThickness = true,
     Length = 15, -- in studs
-    Smoothness = 0.2 -- amount of updates, lower is less smooth
+    Smoothness = 0.2 
 }
 
-if not getgenv().viewtracer.Enabled then return end 
+
 
 local toggle = true 
 
@@ -65,11 +64,26 @@ local function ESP(plr)
     coroutine.wrap(Updater)()
 end
 
+task.spawn(function()
+    while task.wait(0.1) do
+        if getgenv().viewtracer.Enabled then
+        else
+            for _, v in pairs(game:GetService("Players"):GetPlayers()) do
+                if v.Name ~= player.Name then
+                    v.Character:FindFirstChildOfClass("Humanoid"):FindFirstChild("Head").Visible = false
+                end
+            end
+        end
+    end
+end)
+
+
 for i, v in pairs(game:GetService("Players"):GetPlayers()) do
     if v.Name ~= player.Name then
         coroutine.wrap(ESP)(v)
     end
 end
+
 
 game.Players.PlayerAdded:Connect(function(newplr)
     if newplr.Name ~= player.Name then
