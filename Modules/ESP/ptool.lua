@@ -5,6 +5,8 @@ getgenv().ptool = getgenv().ptool or {
     Size = 10,
 }
 
+if not getgenv().ptool.Enabled then return end 
+
 local billboards = {} 
 
 
