@@ -5,6 +5,8 @@ getgenv().pname = getgenv().pname or {
     Size = 10, 
 }
 
+if not getgenv().pname.Enabled then return end 
+
 local billboards = {} 
 
 
