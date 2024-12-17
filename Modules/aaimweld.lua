@@ -30,7 +30,7 @@ local function setupCharacter(character)
     spinWeld.Part0 = humanoidRootPart
     spinWeld.Part1 = torso
 
-    -- Apply the offset if enabled
+
     if getgenv().aaimweld.offset then
         spinWeld.C0 = CFrame.new(0, 1, 0) 
     else
@@ -106,7 +106,7 @@ task.spawn(function()
     end
 end)
 
--- Monitor for changes to getgenv().aaimweld.offset
+
 task.spawn(function()
     local lastOffset = getgenv().aaimweld.offset
     while true do
