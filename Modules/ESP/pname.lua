@@ -1,6 +1,6 @@
 getgenv().pname = getgenv().pname or {
     Color = Color3.fromRGB(255, 255, 255), 
-    Enabled = true, 
+    Enabled = false, 
     Position = "Above", -- hi future me the options are "Above" or "Below" remember that ok? ok good.
     Size = 10,
 }
