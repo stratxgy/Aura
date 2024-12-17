@@ -1,12 +1,12 @@
 
 getgenv().pname = getgenv().pname or {
-    Color = Color3.fromRGB(255, 255, 255),
-    Enabled = false,
+    Color = Color3.fromRGB(255, 255, 255), 
+    Enabled = false, 
     Position = "Above",  -- hi future me the options are "Above" or "Below" remember that ok? ok good.
     Size = 10, 
 }
 
-local billboards = {} 
+local billboards = {}
 
 
 local function createNameBillboard(player)
@@ -17,7 +17,7 @@ local function createNameBillboard(player)
         if not getgenv().pname.Enabled then return end
         local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
 
-
+   
         local billboard = Instance.new("BillboardGui")
         billboard.Adornee = humanoidRootPart
         billboard.Size = UDim2.new(4, 0, 1, 0)
@@ -39,9 +39,9 @@ local function createNameBillboard(player)
         textLabel.Parent = billboard
 
         billboard.Parent = humanoidRootPart
-        billboards[player] = billboard 
+        billboards[player] = billboard
 
-      
+    
         character.AncestryChanged:Connect(function()
             if not character:IsDescendantOf(game) then
                 billboard:Destroy()
@@ -96,3 +96,4 @@ if getgenv().pname.Enabled then
         createNameBillboard(player)
     end)
 end
+
