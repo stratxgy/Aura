@@ -9,6 +9,10 @@ getgenv().ptool = {
     Size = 10,
 }
 
+
+if not getgenv().ptool.Enabled then return end
+
+
 local billboards = {}
 
 local function createToolBillboard(player)
