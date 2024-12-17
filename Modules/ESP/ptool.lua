@@ -1,22 +1,22 @@
+
 getgenv().ptool = getgenv().ptool or {
     Color = Color3.fromRGB(255, 255, 255),
-    Enabled = false, 
-    Position = "Above",  -- Above or Below (hi I was here, yes I know so cool)
-    Size = 10, 
+    Enabled = false,  -- Above or Below (hi I was here, yes I know so cool)
+    Position = "Above", 
+    Size = 10,
 }
 
 local billboards = {} 
 
 
 local function createToolBillboard(player)
-    if not getgenv().ptool.Enabled then return end
     if player == game.Players.LocalPlayer then return end 
+    if not getgenv().ptool.Enabled then return end 
 
     local function adornCharacter(character)
         if not getgenv().ptool.Enabled then return end
         local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
 
-  
         local billboard = Instance.new("BillboardGui")
         billboard.Adornee = humanoidRootPart
         billboard.Size = UDim2.new(4, 0, 1, 0)
@@ -25,7 +25,7 @@ local function createToolBillboard(player)
             or Vector3.new(0, 4, 0)
         billboard.AlwaysOnTop = true
 
- 
+     
         local textLabel = Instance.new("TextLabel")
         textLabel.BackgroundTransparency = 1
         textLabel.TextColor3 = getgenv().ptool.Color
@@ -39,7 +39,7 @@ local function createToolBillboard(player)
         billboard.Parent = humanoidRootPart
         billboards[player] = billboard
 
-
+      
         local function updateTool()
             local tool = character:FindFirstChildOfClass("Tool")
             textLabel.Text = tool and tool.Name or "None"
@@ -91,10 +91,8 @@ if getgenv().ptool.Enabled then
     for _, player in ipairs(game.Players:GetPlayers()) do
         createToolBillboard(player)
     end
-end
 
-game.Players.PlayerAdded:Connect(function(player)
-    if getgenv().ptool.Enabled then
+    game.Players.PlayerAdded:Connect(function(player)
         createToolBillboard(player)
-    end
-end)
+    end)
+end
