@@ -1,11 +1,11 @@
 
 getgenv().hbar = {
     enabled = false,            
-    barThickness = 3,           -- Thickness of the health bar outline
-    greenThickness = 1.5,       -- Thickness of the green health part
-    barColor = Color3.fromRGB(0, 0, 0),  -- Outline color of the health bar
-    greenColor = Color3.fromRGB(0, 255, 0), -- Color of the health fill (green part)
-    updateInterval = 0.1        -- How often the health bar should update (seconds)
+    barThickness = 3,         
+    greenThickness = 1.5,      
+    barColor = Color3.fromRGB(0, 0, 0),
+    greenColor = Color3.fromRGB(0, 255, 0), 
+    updateInterval = 0.1       
 }
 
 
