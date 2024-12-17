@@ -1,4 +1,4 @@
--- Global Settings
+
 getgenv().spin = {
     enabled = false,     
     straferadius = 10,  
