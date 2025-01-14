@@ -11,3 +11,6 @@ im working on a video
 loader.lua will now be added as.. a loader.
 
 
+1/13/25 ok the loader is leaving.. dont ask
+
+
