@@ -1,20 +1,22 @@
-
 getgenv().autoclick = {
     enabled = false,
-    bind = Enum.KeyCode.Q,  
-    toggle = false,
+    bind = Enum.KeyCode.Q,
+    mode = "Hold",          
     cps = 15
 }
+
 
 local UserInputService = game:GetService("UserInputService")
 local VirtualUser = game:GetService("VirtualUser")
 
 local autoclicking = false
 
+
 local function performClick()
     VirtualUser:Button1Down(Vector2.new())
     VirtualUser:Button1Up(Vector2.new())
 end
+
 
 local function clickLoop()
     while autoclicking and getgenv().autoclick.enabled do
@@ -23,8 +25,10 @@ local function clickLoop()
     end
 end
 
+
 local function isBindPressed(input)
     local bind = getgenv().autoclick.bind
+
     if input.KeyCode and input.KeyCode == bind then
         return true
     end
@@ -34,19 +38,19 @@ local function isBindPressed(input)
     return false
 end
 
+local mode = string.lower(getgenv().autoclick.mode) 
 
-if getgenv().autoclick.toggle then
+if mode == "toggle" then
     UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
         if gameProcessedEvent then return end
         if isBindPressed(input) then
             autoclicking = not autoclicking
-            if autoclicking then           
+            if autoclicking then
                 spawn(clickLoop)
             end
         end
     end)
-else
-    
+elseif mode == "hold" then
     UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
         if gameProcessedEvent then return end
         if isBindPressed(input) then
@@ -61,5 +65,5 @@ else
             autoclicking = false
         end
     end)
-end
+
 
