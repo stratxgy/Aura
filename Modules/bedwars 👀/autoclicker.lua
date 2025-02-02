@@ -1,6 +1,6 @@
 
 getgenv().autoclick = {
-    enabled = true,
+    enabled = false,
     bind = Enum.KeyCode.Q,  
     toggle = false,
     cps = 15
