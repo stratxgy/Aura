@@ -17,11 +17,11 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/stratxgy/Aura/refs/he
 
 ![Thread](https://github.com/stratxgy/Aura/blob/cf2e26763df300044514ff77426a2dff06b11c42/Modules/New%20Project.jpg)
 
-
+showcase video (click)
 [![showcase](https://img.youtube.com/vi/6NsFaTIoxjI/0.jpg)](https://youtu.be/6NsFaTIoxjI)
 
-
-[![showcase](https://img.youtube.com/vi/qyqn1oW3nXY/0.jpg)](https://www.youtube.com/watch?v=qyqn1oW3nXY)
+trailer kinda video (click)
+[![trailer](https://img.youtube.com/vi/qyqn1oW3nXY/0.jpg)](https://www.youtube.com/watch?v=qyqn1oW3nXY)
 
 
 
