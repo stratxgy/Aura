@@ -1,7 +1,7 @@
 # Aura
 after 7 months of coding, it's being released.
 
-Tested so it works on basically every executor, given that it's not less than 30 unc (but why are you using one with that unc anyway?)
+Tested so it works on basically every executor
 
 
 ## da hood/hood customs script:
